@@ -7,7 +7,7 @@ import numpy as np
 df = pd.read_csv('medical_examination.csv')
 
 # 2
-df['overweight'] = None
+df['overweight'] = (df['weight'] / (df['height'] / 100) ** 2 > 25).astype(int)
 
 # 3
 
