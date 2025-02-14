@@ -15,23 +15,17 @@ df[['cholesterol', 'gluc']] = df[['cholesterol', 'gluc']].map(lambda x: 0 if x =
 # 4
 def draw_cat_plot():
     # 5
-    df_cat = None
-
+    df_cat = pd.melt(df, id_vars = ['cardio'], value_vars = ['cholesterol', 'gluc', 'smoke', 'alco', 'active', 'overweight'])
 
     # 6
-    df_cat = None
-    
+    df_cat = df_cat.groupby(['cardio', 'variable', 'value']).size().reset_index(name = 'total')
 
     # 7
-
-
-
     # 8
-    fig = None
-
+    fig = sns.catplot(data = df_cat, x = 'variable', y = 'total', hue = 'value', col = 'cardio', kind = 'bar')
 
     # 9
-    fig.savefig('catplot.png')
+    fig.savefig('examples/catplot.png')
     return fig
 
 
