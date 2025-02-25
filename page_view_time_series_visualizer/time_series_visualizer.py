@@ -8,18 +8,21 @@ register_matplotlib_converters()
 df = pd.read_csv('fcc-forum-pageviews.csv')
 
 # Clean data
-df = None
+lower_bound = df['value'].quantile(0.025)
+upper_bound = df['value'].quantile(0.975)
+df = df[(df['value'] >= lower_bound) & (df['value'] <= upper_bound)]
 
 
 def draw_line_plot():
     # Draw line plot
-
-
-
-
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.plot(df.index, df['value'], color='red', linewidth=1)
+    ax.set_title('Daily freeCodeCamp Forum Page Views 5/2016-12/2019')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Page Views')
 
     # Save image and return fig (don't change this part)
-    fig.savefig('line_plot.png')
+    fig.savefig('examples/line_plot.png')
     return fig
 
 def draw_bar_plot():
