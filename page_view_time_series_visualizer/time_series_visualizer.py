@@ -36,7 +36,7 @@ def draw_bar_plot():
     fig = df_bar.plot(kind='bar', figsize=(12,8)).figure
     plt.xlabel('Years')
     plt.ylabel('Average Page Views')
-    plt.legend(title='Months', labels=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
+    plt.legend(title='Months', labels=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])
 
     # Save image and return fig (don't change this part)
     fig.savefig('examples/bar_plot.png')
