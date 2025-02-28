@@ -53,7 +53,7 @@ def draw_box_plot():
     # Draw box plots (using Seaborn)
     fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(14, 6))
     sns.boxplot(x='year', y='value', data=df_box, ax=axes[0], hue='year', palette='Blues', legend=False)
-    axes[0].set_title('>ear-wise Box Plot (Trend)')
+    axes[0].set_title('Year-wise Box Plot (Trend)')
     axes[0].set_xlabel('Year')
     axes[0].set_ylabel('Page Views')
 
@@ -63,5 +63,5 @@ def draw_box_plot():
     axes[1].set_ylabel('Page Views')
 
     # Save image and return fig (don't change this part)
-    fig.savefig('box_plot.png')
+    fig.savefig('examples/box_plot.png')
     return fig
