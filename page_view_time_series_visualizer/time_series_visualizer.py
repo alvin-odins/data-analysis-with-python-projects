@@ -33,7 +33,7 @@ def draw_bar_plot():
     df_bar = df_bar.groupby(['year', 'month'])['value'].mean().unstack()
 
     # Draw bar plot
-    fig = df_bar.plot(kind='bar', figsize=(12,8))
+    fig = df_bar.plot(kind='bar', figsize=(12,8)).figure
     plt.xlabel('Years')
     plt.ylabel('Average Page Views')
     plt.legend(title='Months', labels=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
@@ -51,7 +51,7 @@ def draw_box_plot():
 
     month_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     # Draw box plots (using Seaborn)
-    fig, axex = plt.subplots(nrows=1, ncols=2, figsize=(14, 6))
+    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(14, 6))
     sns.boxplot(x='year', y='value', data=df_box, ax=axes[0], hue='year', palette='Blues', legend=False)
     axes[0].set_title('>ear-wise Box Plot (Trend)')
     axes[0].set_xlabel('Year')
