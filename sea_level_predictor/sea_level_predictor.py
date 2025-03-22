@@ -11,7 +11,7 @@ def draw_plot():
     df['NOAA Adjusted Sea Level'] = df['NOAA Adjusted Sea Level'].fillna(mean_err_bound)
 
     # Create scatter plot
-     plt.scatter(df['Year'], df['CSIRO Adjusted Sea Level'])
+    plt.scatter(df['Year'], df['CSIRO Adjusted Sea Level'])
 
     # Create first line of best fit
     slope, intercept, _, _, _ = linregress(df['Year'], df['CSIRO Adjusted Sea Level'])
